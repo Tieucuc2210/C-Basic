@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+
+
+using namespace std;
+using ll = long long;
+using db = double;
+#define MAX_SIZE 1e7
+#define MIN_SIZE -1e7
+
+const int MOD = (int) 1e9+7;
+const int INF = (int) 1e9+1;
+inline ll gcd(ll a,ll b){ll r;while(b){r=a%b;a=b;b=r;}return a;}
+inline ll lcm(ll a,ll b){return a/gcd(a,b)*b;}
+
+
+int cmd(int a,int b){
+	if(b == 0) return a;
+	return cmd(b , a % b);
+}
+
+int boi(int a, int b){
+	return a * b / cmd(a , b);
+}
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    int t; cin >> t;
+    while (t--){
+    	int a, b; cin >> a >> b;
+    	cout << cmd(a , b) << " " << boi(a , b) << endl;
+    }
+}
